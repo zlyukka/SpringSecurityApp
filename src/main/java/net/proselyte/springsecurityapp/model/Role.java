@@ -5,14 +5,15 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "groups")
 public class Role {
 
     @Id
+    @Column(name = "group_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "group_name")
     private String name;
 
     @ManyToMany(mappedBy = "roles")
