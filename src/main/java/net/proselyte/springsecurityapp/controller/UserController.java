@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Map;
+
 /**
  * Controller for {@link net.proselyte.springsecurityapp.model.User}'s pages.
  *
@@ -72,7 +74,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(Model model) {
+    public String admin(Model model, Map<String, Object> map) {
+        map.put("user", new User());
+        map.put("userList", userService.listUsers());
         return "admin";
     }
 }

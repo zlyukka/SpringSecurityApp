@@ -28,6 +28,30 @@
     </c:if>
 </div>
 
+<!-- Contacts -->
+
+<h3>Contacts</h3>
+<c:if test="${!empty userList}">
+	<table class="data">
+		<tr>
+			<th>ID</th>
+			<th>&nbsp;</th>
+			<th>NAME</th>
+			<th>PASSWORD</th>
+			<th>&nbsp;</th>
+		</tr>
+		<c:forEach items="${userList}" var="user">
+			<tr>
+				<td>${user.id}</td>
+				<td>&nbsp;</td>
+				<td>${user.username}</td>
+				<td>${user.password}</td>
+				<td><a href="delete/${user.id}">Delete User</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+</c:if>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
